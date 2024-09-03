@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ComexAPI.Data;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace ComexAPI.Models;
