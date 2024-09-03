@@ -14,6 +14,7 @@ public class Produto
         Quantidade = quantidade;
     }
 
+    [Key]
     [Required]
     public int Id { get; set; }
     [Required]
