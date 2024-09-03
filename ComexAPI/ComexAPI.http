@@ -1,6 +1,30 @@
 @ComexAPI_HostAddress = http://localhost:5145
 
-GET {{ComexAPI_HostAddress}}/weatherforecast/
-Accept: application/json
+POST {{ComexAPI_HostAddress}}/produto/ 
+Content-type: application/json
+{
+    "Nome":"Coca Cola",
+    "Descricao": "Uma coca cola bem geladinha",
+    "Preco": 3.50,
+    "Quantidade": 10
+}
+###
+GET {{ComexAPI_HostAddress}}/produto/ 
+Content-type: application/json
 
 ###
+GET {{ComexAPI_HostAddress}}/produto/1
+Content-type: application/json
+
+###
+PUT {{ComexAPI_HostAddress}}/produto/1
+Content-type: application/json
+{
+    "Nome":"Coca Colaaaaaaaaa",
+    "Descricao": "Uma coca cola bem geladinha",
+    "Preco": 3.50,
+    "Quantidade": 10
+}
+###
+DELETE {{ComexAPI_HostAddress}}/produto/1
+Content-type: application/json
