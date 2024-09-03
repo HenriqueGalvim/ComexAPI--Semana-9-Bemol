@@ -1,15 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ComexAPI.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace ComexAPI.Models;
+namespace ComexAPI.Data.Dtos;
 
-public class Produto
+public class UpdateProdutoDto
 {
-
-    [Key]
-    [Required]
-    public int Id { get; set; }
     [Required]
     [MaxLength(100, ErrorMessage = "O nome do produto não pode exceder 100 caracteres")]
     public string Nome { get; set; }
@@ -18,8 +12,8 @@ public class Produto
     public string Descricao { get; set; }
 
     [Required]
-    [Range(1,999999999, ErrorMessage = "O preço deve ser maior que 0")]
-    public float Preco {  get; set; }
+    [Range(1, 999999999, ErrorMessage = "O preço deve ser maior que 0")]
+    public float Preco { get; set; }
 
     [Required]
     [Range(0, 999999999, ErrorMessage = "A quantidade pode ser igual ou maior que 0")]

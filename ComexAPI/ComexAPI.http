@@ -3,9 +3,9 @@
 POST {{ComexAPI_HostAddress}}/produto/ 
 Content-type: application/json
 {
-    "Nome":"Coca Cola",
-    "Descricao": "Uma coca cola bem geladinha",
-    "Preco": 3.50,
+    "Nome":"Pepsi",
+    "Descricao": "Uma pepsi cola bem geladinha",
+    "Preco": 2.50,
     "Quantidade": 10
 }
 ###
@@ -13,11 +13,11 @@ GET {{ComexAPI_HostAddress}}/produto/
 Content-type: application/json
 
 ###
-GET {{ComexAPI_HostAddress}}/produto/1
+GET {{ComexAPI_HostAddress}}/produto/2
 Content-type: application/json
 
 ###
-PUT {{ComexAPI_HostAddress}}/produto/1
+PUT {{ComexAPI_HostAddress}}/produto/2
 Content-type: application/json
 {
     "Nome":"Coca Colaaaaaaaaa",
@@ -26,5 +26,5 @@ Content-type: application/json
     "Quantidade": 10
 }
 ###
-DELETE {{ComexAPI_HostAddress}}/produto/1
+DELETE {{ComexAPI_HostAddress}}/produto/2
 Content-type: application/json
