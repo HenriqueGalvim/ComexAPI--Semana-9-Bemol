@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using ComexAPI.Data.Dtos;
+using ComexAPI.Data.Dtos.Produto;
 using ComexAPI.Models;
 
 namespace ComexAPI.Profiles;
 
-public class ProdutoProfile : Profile
+public class ProdutoProfile : AutoMapper.Profile
 {
     public ProdutoProfile()
     {

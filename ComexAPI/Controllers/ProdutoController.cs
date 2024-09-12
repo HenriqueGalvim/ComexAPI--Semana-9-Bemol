@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ComexAPI.Data;
-using ComexAPI.Data.Dtos;
+using ComexAPI.Data.Dtos.Produto;
 using ComexAPI.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

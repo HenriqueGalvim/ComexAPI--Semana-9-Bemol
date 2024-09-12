@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ComexAPI.Data.Dtos;
+namespace ComexAPI.Data.Dtos.Produto;
 
-public class UpdateProdutoDto
+public class CreateProdutoDto
 {
     [Required]
     [MaxLength(100, ErrorMessage = "O nome do produto não pode exceder 100 caracteres")]

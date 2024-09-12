@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ComexAPI.Data.Dtos;
+namespace ComexAPI.Data.Dtos.Produto;
 
 public class ReadProdutoDto
 {
