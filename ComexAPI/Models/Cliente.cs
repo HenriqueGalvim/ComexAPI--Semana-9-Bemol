@@ -1,11 +1,18 @@
-﻿namespace ComexAPI.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ComexAPI.Models;
 
 public class Cliente
 {
+	[Key]
+	[Required]
+	public int Id { get; set; }
 	public string Nome { get; set; }
 	public string CPF { get; set; }
 	public string Email { get; set; }
 	public string Profissao { get; set; }
 	public string Telefone { get; set; }
-	public Endereco Endereco { get; set; } = new Endereco();
+
+	public int enderecoId { get; set; }
+	public virtual Endereco Endereco { get; set; }
 }
