@@ -24,4 +24,8 @@ public class Produto
     [Required]
     [Range(0, 999999999, ErrorMessage = "A quantidade pode ser igual ou maior que 0")]
     public int Quantidade { get; set; }
+
+    public int CategoriaId { get; set; }
+
+    public virtual Categoria Categoria { get; set; }
 }
