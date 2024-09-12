@@ -6,7 +6,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ProdutoContext>(opts => opts.UseNpgsql(builder.Configuration.GetConnectionString("ProdutoConnection")));
+builder.Services.AddDbContext<ProdutoContext>(opts => opts.UseLazyLoadingProxies().UseNpgsql(builder.Configuration.GetConnectionString("ProdutoConnection")));
 // Add services to the container.
 
 builder.Services.
