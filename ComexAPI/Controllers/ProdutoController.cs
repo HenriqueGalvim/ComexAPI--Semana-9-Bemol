@@ -46,7 +46,7 @@ public class ProdutoController : ControllerBase
     public IEnumerable<ReadProdutoDto> ListarProdutos([FromQuery] int skip = 0,
         [FromQuery] int take = 50)
     {
-        return _mapper.Map<List<ReadProdutoDto>>(_context.Produtos.Skip(skip).Take(take));
+        return _mapper.Map<List<ReadProdutoDto>>(_context.Produtos.Skip(skip).Take(take).ToList());
     }
 
     /// <summary>

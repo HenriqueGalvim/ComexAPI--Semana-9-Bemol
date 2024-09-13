@@ -3,10 +3,11 @@
 POST {{ComexAPI_HostAddress}}/produto/ 
 Content-type: application/json
 {
-    "Nome":"Pepsi",
-    "Descricao": "Uma pepsi cola bem geladinha",
-    "Preco": 2.50,
-    "Quantidade": 10
+    "Nome":"Notebook Acer",
+    "Descricao": "Baratinho",
+    "Preco": 3000.50,
+    "Quantidade": 2,
+    "CategoriaId" : 1
 }
 ###
 GET http://localhost:5145/produto/ 
@@ -75,10 +76,21 @@ Content-type: application/json
   "email": "henrique@email.com",
   "profissao": "dev",
   "telefone": "3520293325",
-  "enderecoId": 3
+  "enderecoId": 4
 }
 
 ###
 
 GET {{ComexAPI_HostAddress}}/cliente/
+Content-type: application/json
+
+###
+POST http://localhost:5145/categoria/ 
+Content-type: application/json
+{
+  "Nome": "Bebida",
+}
+
+###
+GET http://localhost:5145/categoria/ 
 Content-type: application/json

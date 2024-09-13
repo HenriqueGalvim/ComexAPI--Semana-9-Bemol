@@ -18,4 +18,6 @@ public class UpdateProdutoDto
     [Required]
     [Range(0, 999999999, ErrorMessage = "A quantidade pode ser igual ou maior que 0")]
     public int Quantidade { get; set; }
+
+	public int CategoriaId { get; set; }
 }

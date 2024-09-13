@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using ComexAPI.Data.Dtos.Categoria;
 
 namespace ComexAPI.Data.Dtos.Produto;
 
@@ -19,5 +20,7 @@ public class ReadProdutoDto
     [Range(0, 999999999, ErrorMessage = "A quantidade pode ser igual ou maior que 0")]
     public int Quantidade { get; set; }
 
-    public DateTime HoraDaConsulta { get; set; } = DateTime.Now;
+	public int CategoriaId { get; set; }
+	public DateTime HoraDaConsulta { get; set; } = DateTime.Now;
+
 }

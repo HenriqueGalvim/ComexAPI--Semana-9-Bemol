@@ -47,7 +47,7 @@ public class ClienteController:ControllerBase
 	public IEnumerable<ReadClienteDto> ListarClientes([FromQuery] int skip = 0,
 		[FromQuery] int take = 50)
 	{
-		return _mapper.Map<List<ReadClienteDto>>(_context.Clientes.Skip(skip).Take(take));
+		return _mapper.Map<List<ReadClienteDto>>(_context.Clientes.Skip(skip).Take(take).ToList());
 	}
 
 	/// <summary>

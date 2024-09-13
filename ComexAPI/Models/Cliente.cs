@@ -13,6 +13,6 @@ public class Cliente
 	public string Profissao { get; set; }
 	public string Telefone { get; set; }
 
-	public int enderecoId { get; set; }
+	public int EnderecoId { get; set; }
 	public virtual Endereco Endereco { get; set; }
 }

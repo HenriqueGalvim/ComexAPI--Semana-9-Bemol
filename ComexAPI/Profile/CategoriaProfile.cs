@@ -11,6 +11,8 @@ public class CategoriaProfile : AutoMapper.Profile
 		CreateMap<CreateCategoriaDto, Categoria>();
 		CreateMap<UpdateCategoriaDto, Categoria>();
 		CreateMap<Categoria, UpdateCategoriaDto>();
-		CreateMap<Categoria, ReadCategoriaDto>();
+		CreateMap<Categoria, ReadCategoriaDto>()
+		   .ForMember(categoriaDto => categoriaDto.Produtos,
+			opt => opt.MapFrom(categoria => categoria.Produtos));
 	}
 }

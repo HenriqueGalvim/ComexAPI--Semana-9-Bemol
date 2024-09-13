@@ -12,5 +12,6 @@ public class ProdutoProfile : AutoMapper.Profile
         CreateMap<UpdateProdutoDto, Produto>();
         CreateMap<Produto, UpdateProdutoDto>();
         CreateMap<Produto, ReadProdutoDto>();
-    }
+
+	}
 }

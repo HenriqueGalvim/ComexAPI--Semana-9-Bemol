@@ -27,5 +27,4 @@ public class Produto
 
     public int CategoriaId { get; set; }
 
-    public virtual Categoria Categoria { get; set; }
 }
