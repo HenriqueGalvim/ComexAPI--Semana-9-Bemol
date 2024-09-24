@@ -17,9 +17,11 @@ servers:
 
 paths:
 
-  /produtos:
+  /Produto:
     get:
-      summary: Recupera todos os produtos
+      tags:
+        - Produto
+      summary: Lista todos os produtos
       responses: 
         200: 
           description: Sucesso
@@ -32,12 +34,14 @@ paths:
         404:
           description: Produtos não encontrados
     post:
-      summary: Cria novo produto
+      tags:
+        - Produto
+      summary: Adiciona um produto no banco de dados
       requestBody:
         content:
           application/json: 
             schema:
-              $ref: '#/components/schemas/ProdutoIncompleto' 
+              $ref: '#/components/schemas/ProdutoDto' 
               
       responses:
         201:
@@ -49,11 +53,13 @@ paths:
         400:
           description: "Falha ao criar novo produto"
           
-  /produtos/{produtoId}:
+  /Produto/{id}:
     get:
-      summary: Recupera produto por Id
+      tags:
+        - Produto
+      summary: Retorna um produto pelo seu ID
       parameters:
-      - name: produtoId
+      - name: id
         in: path
         description: ID do produto a ser buscado
         required: true
@@ -71,9 +77,11 @@ paths:
           description: Produtos não encontrados
           
     put:
+      tags:
+        - Produto
       summary: Atualiza um produto existente
       parameters:
-      - name: produtoId
+      - name: id
         in: path
         description: ID do produto a ser atualizado
         required: true
@@ -84,7 +92,7 @@ paths:
         content:
           application/json: 
             schema:
-              $ref: '#/components/schemas/ProdutoIncompleto' 
+              $ref: '#/components/schemas/ProdutoDto' 
               
       responses: 
         204: 
@@ -93,9 +101,11 @@ paths:
           description: Falha ao atualizar o produto
     
     delete:
-      summary: Remove um produto 
+      tags:
+        - Produto
+      summary: Deleta um produto 
       parameters:
-      - name: produtoId
+      - name: id
         in: path
         description: ID do produto a ser excluído
         required: true
@@ -132,7 +142,7 @@ components:
             CategoriaId: 
                 type: integer
                 example: 1
-    ProdutoIncompleto:
+    ProdutoDto:
       type: object
       properties:
           Nome:
