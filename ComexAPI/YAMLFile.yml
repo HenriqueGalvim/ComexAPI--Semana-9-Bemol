@@ -55,7 +55,7 @@ paths:
       parameters:
       - name: produtoId
         in: path
-        description: ID do produto
+        description: ID do produto a ser buscado
         required: true
         schema:
           type: integer
@@ -75,7 +75,7 @@ paths:
       parameters:
       - name: produtoId
         in: path
-        description: ID do produto
+        description: ID do produto a ser atualizado
         required: true
         schema:
           type: integer
@@ -91,6 +91,22 @@ paths:
           description: Sem conteudo
         400:
           description: Falha ao atualizar o produto
+    
+    delete:
+      summary: Remove um produto 
+      parameters:
+      - name: produtoId
+        in: path
+        description: ID do produto a ser excluído
+        required: true
+        schema:
+          type: integer
+          
+      responses: 
+        204: 
+          description: Sem conteudo
+        400:
+          description: Falha ao remover o produto
 security: 
   - oauth: [] 
 components:
