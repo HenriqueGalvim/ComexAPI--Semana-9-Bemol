@@ -30,7 +30,40 @@ paths:
                   $ref: '#/components/schemas/Produto' 
         404:
           description: Produtos não encontrados
-    
+    post:
+      summary: Cria novo produto
+      requestBody:
+        content:
+          application/json: 
+            schema:
+              type: object
+              properties:
+                Nome:
+                    type: string
+                    example: "Coca cola"
+                Descricao:
+                    type: string
+                    example: "Uma coca gelada"
+                Preco: 
+                    type: number
+                    example : 6.99
+                Quantidade: 
+                    type: integer
+                    example: 5
+                CategoriaId: 
+                    type: integer
+                    example: 1
+              
+      responses:
+        201:
+          description: "Sucesso ao criar o produto"
+          content: 
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/Produto' 
+        400:
+          description: "Falha ao criar novo produto"
+          
   /produtos/{produtoId}:
     get:
       summary: Recupera produto por Id
@@ -51,7 +84,6 @@ paths:
                  $ref: '#/components/schemas/Produto' 
         404:
           description: Produtos não encontrados
-
 components:
   schemas:
     Produto:
