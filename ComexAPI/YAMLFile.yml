@@ -36,23 +36,7 @@ paths:
         content:
           application/json: 
             schema:
-              type: object
-              properties:
-                Nome:
-                    type: string
-                    example: "Coca cola"
-                Descricao:
-                    type: string
-                    example: "Uma coca gelada"
-                Preco: 
-                    type: number
-                    example : 6.99
-                Quantidade: 
-                    type: integer
-                    example: 5
-                CategoriaId: 
-                    type: integer
-                    example: 1
+              $ref: '#/components/schemas/ProdutoIncompleto' 
               
       responses:
         201:
@@ -70,7 +54,7 @@ paths:
       parameters:
       - name: produtoId
         in: path
-        description: ID of pet to return
+        description: ID do produto
         required: true
         schema:
           type: integer
@@ -84,6 +68,29 @@ paths:
                  $ref: '#/components/schemas/Produto' 
         404:
           description: Produtos não encontrados
+          
+    put:
+      summary: Atualiza um produto existente
+      parameters:
+      - name: produtoId
+        in: path
+        description: ID do produto
+        required: true
+        schema:
+          type: integer
+            
+      requestBody:
+        content:
+          application/json: 
+            schema:
+              $ref: '#/components/schemas/ProdutoIncompleto' 
+              
+      responses: 
+        204: 
+          description: Sem conteudo
+        400:
+          description: Falha ao atualizar o produto
+      
 components:
   schemas:
     Produto:
@@ -107,3 +114,22 @@ components:
             CategoriaId: 
                 type: integer
                 example: 1
+    ProdutoIncompleto:
+      type: object
+      properties:
+          Nome:
+            type: string
+            example: "Coca cola zero"
+          Descricao:
+            type: string
+            example: "Uma coca geladinha"
+          Preco: 
+            type: number
+            example : 6.99
+          Quantidade: 
+            type: integer
+            example: 5
+          CategoriaId: 
+            type: integer
+            example: 1
+              
