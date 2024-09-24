@@ -14,3 +14,64 @@ externalDocs:
   url: http://swagger.io
 servers:
   - url: http://localhost:3000
+
+paths:
+  /produtos:
+    get:
+      summary: Recupera todos os produtos
+      responses: 
+        200: 
+          description: Sucesso
+          content: 
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Produto' 
+        404:
+          description: Produtos não encontrados
+    
+  /produtos/{produtoId}:
+    get:
+      summary: Recupera produto por Id
+      parameters:
+      - name: produtoId
+        in: path
+        description: ID of pet to return
+        required: true
+        schema:
+          type: integer
+            
+      responses: 
+        200: 
+          description: Sucesso
+          content: 
+            application/json:
+              schema: 
+                 $ref: '#/components/schemas/Produto' 
+        404:
+          description: Produtos não encontrados
+
+components:
+  schemas:
+    Produto:
+        type: object
+        properties:
+            Id:
+                type: integer
+                example: 1
+            Nome:
+                type: string
+                example: "Coca cola"
+            Descricao:
+                type: string
+                example: "Uma coca gelada"
+            Preco: 
+                type: number
+                example : 6.99
+            Quantidade: 
+                type: integer
+                example: 5
+            CategoriaId: 
+                type: integer
+                example: 1
