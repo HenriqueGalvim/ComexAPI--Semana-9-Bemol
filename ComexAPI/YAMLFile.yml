@@ -16,6 +16,7 @@ servers:
   - url: http://localhost:3000
 
 paths:
+
   /produtos:
     get:
       summary: Recupera todos os produtos
@@ -90,7 +91,8 @@ paths:
           description: Sem conteudo
         400:
           description: Falha ao atualizar o produto
-      
+security: 
+  - oauth: [] 
 components:
   schemas:
     Produto:
@@ -132,4 +134,9 @@ components:
           CategoriaId: 
             type: integer
             example: 1
-              
+  securitySchemes:
+    oauth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      
