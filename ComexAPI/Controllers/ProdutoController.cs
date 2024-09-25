@@ -24,6 +24,7 @@ public class ProdutoController : ControllerBase
     /// <param name="produtoDto">Objeto com os campos necessários para criação de um produto</param>
     /// <returns>IActionResult</returns>
     /// <response code="201">Caso inserção seja feita com sucesso</response>
+    /// 
     [HttpPost]
     [ProducesResponseType(StatusCodes.Status201Created)]
     public IActionResult AdicionaProduto([FromBody] CreateProdutoDto produtoDto)
