@@ -1,0 +1,84 @@
+﻿1 - Conhecendo a arquitetura
+
+- Como a Web funciona no contexto de microsserviços?
+ A internet opera por meio do protocolo http, tendo um cliente e um servidor. Ou seja, um que solicita e outro que responde a essa solicitação
+
+- Quais são as desvantagens de arquiteturas monolíticas que podem motivar a adoção de microsserviços?
+Uma das desvantagens mais importantes das aplicações monolíticas é a dificuldade em realizar deploys. Em aplicações monolíticas, mesmo pequenas alterações podem exigir a redeploy de todo o sistema, o que pode ser um processo demorado além de arriscado, especialmente em aplicações grandes.
+
+- O que são microsserviços?
+Seria uma aplicação monolítica quebrada em diversas pequenas aplicações, separando as responsabilidades e não se limitando a apenas um serviço grande.
+
+- Quais são as principais vantagens e desvantagens dos microsserviços?
+Ãs principais vantagens são: Por serem aplicações independentes, então é possivel utilizar diversas tecnologias, não se limitando apenas a uma; Se um serviço falhar ou cair, será de forma isolada, ou seja, por serem independentes, eles não vão necessariamente se afetar; Tendo em vista que são aplicações menores, seu deploy será mais rápido e otimizado.
+
+- Quais os diferentes tipos de serviços em uma arquitetura de microsserviços?
+São eles: Data service, um serviço que apenas expõe dados, seu principal objetivo é manter a integridade dos dados; Business service, além de consumir dados, ele realiza operações mais complexas ; Translation service, tem como sua caracteristica o fato de acessar um serviço externo porém mantendo o controle dele, em caso de alteração, apenas este serviço será afetado; Edge service trata de um serviço	que entrega diretamente para um cliente e pode ter necessidades especificas. 
+
+2 - Separando serviços
+
+- O que são serviços de domínio e como eles se relacionam com o DDD (Domain-Driven Design)?
+ Levando em conta que ao seguir as práticas do DDD, seremos capazes de identificar e modelar um domínio bem delimitado do projeto, não o projeto todo, mas uma parte dele. A partir disso, por ser bem definido, é possivel criar um serviço que atue nas ações as quais aquele domínio vai operar.
+
+- Qual é o propósito de dividir uma aplicação monolítica em serviços de negócio?
+Tendo em vista que um serviço de negócio é um conjunto de diversos serviços de domínio, ele surge para auxiliar em situações mais complexas, onde é necessário a existência de mais de um unico serviço de domínio. 
+
+- Como o padrão Strangler pode ajudar na transição de um sistema monolítico para microsserviços?
+Nele, devemos extrair partes do monolito gradualmente, continuar fazendo isso de tal forma com que o monolito vai sendo decomposto e separado em diversos pequenos serviços
+
+- Explique o padrão Sidecar e sua aplicação em arquiteturas de microsserviços.
+Consiste em criar um módulo compartilhável e que possa ser integrado em diversos serviços, além disso, este terá códigos as quais são comuns nestes serviços, auxiliando na reutilização e permitindo uma maior padronização e uma manutenção mais eficiente, tendo em vista que uma mudança nele afetará todos os outros serviços que o usam.
+
+- Quais são os principais desafios ao quebrar um monolito em microsserviços e como superá-los?
+A complexidade pode ser um dos principais desafios, tendo em vista que para uma aplicação menor, é algo que pode facilitar mais nesse processo de extração de responsabilidades, entretanto, quanto maior a complexidade, mais será necessário uma boa abstração e decomposição do monolito.
+
+3 - Integrando serviços
+
+- O que é um API Gateway e quais são suas principais vantagens em uma arquitetura de microsserviços?
+Uma API Gateway atua como um portão de entrada, auxiliando no processo de direcionamento para onde tal requisição será feita, em outras palavras, este tem o papel de organizar o fluxo de determinada operação, serviço ou acesso.
+
+- Como o agregador de processos funciona e qual é seu papel ao integrar múltiplos serviços em uma única operação?
+Se um serviço de negócio é um conjunto de serviços de domínio, logo, um agregador de processos é um conjunto de serviços de negocios. Geralmente utilizado quando a complexidade é alta e é necessário quando processos dependem de outros processos. Ele não é muito utilizado.
+
+- Explique o Edge Pattern e quando é apropriado aplicá-lo em microsserviços.
+Levando em conta que o Edge Pattern é um tipo de serviço que atua especificamente para determinados clientes, ele é apropriado para quando queremos propiciar experiências diferentes para usuarios diferentes, ou seja, para cada tipo de cliente, será criado um Edge service a qual se responsibilizara de cuidar deste em especifico.
+
+- Quais são os cenários ideais para o uso de um API Gateway em comparação com a comunicação direta entre serviços?
+Quando há muitos serviços no sistema, o Gateway acaba sendo um componente central pois vai facilitar e auxiliar em diversos momentos e processos, tanto na organização do fluxo, na agregação de diferentes serviços, entre outros.
+
+- Quais são os principais desafios de gerenciar a comunicação entre serviços através de um API Gateway e como eles podem ser mitigados?
+Em caso de muitos serviços, o Gateway, apesar de facilitar durantes os processos, pode acabar acrescentando mais complexidade ao sistema, além de que, em caso de falha, se não houver outra alternativa para ele, vai prejudicar todo o sistema.
+
+4 - Lidando com dados
+
+- Por que é recomendado que cada serviço tenha seu próprio banco de dados em uma arquitetura de microsserviços?
+Pois permite uma escalabilidade mais granular, tendo em vista que será possivel ajustar os recursos do banco de dados de acordo com as necessidades específicas de cada serviço.
+
+- Explique como o padrão CQRS (Command Query Responsibility Segregation) pode ajudar na gestão de dados em microsserviços.
+Tendo em vista que neste padrão, é necessário separar em modelos de escrita e de leitura, é possivel separar as responsabilidades de cada um assim como suas operações, além de ser possivel até ter um banco só pra leitura e outro só para a escrita. Dessa forma, pode facilitar na gestão de dados em microsserviços.
+
+- Quais são as vantagens e desafios de utilizar diferentes tipos de bancos de dados em uma mesma aplicação de microsserviços?
+Como principais vantagens, é justamente essa facilidade maior na questão de gestão de dados. Como desvatagens, ressalto o aumento significativo da complexidade de um sistema.
+
+- Como os eventos assíncronos podem ser utilizados para garantir a comunicação entre serviços sem comprometer a performance do sistema?
+Tendo em vista que os eventos assíncronos acontecem de forma paralela, ou seja, quando um processo não consegue dar uma resposta imediata e é processado em segundo plano, ele é assíncrono, assim, não afetando e nem comprometendo a performance do sistema.
+
+- Quais são os principais cuidados ao implementar eventos assíncronos em uma arquitetura de microsserviços?
+Apesar dele trazer diversos beneficios a performance do sistema, é necessário ter cuidado ao implementar pois além de aumentar a complexidade, em casos de erro, vai ser preciso rastrear em cada ponto do processo, além de entender a ordem de eventos qua acontece. Além disso, a consistência de dados é outro fator a ser levado em conta.
+
+5 - Operações
+
+- Qual é a importância dos logs em uma arquitetura de microsserviços?
+Levando em conta que uma arquitetura de microsserviços pode ter inumeras aplicações, então os logs acabam tendo uma importãncia ainda maior do que comumente é, ter uma agregação de logs os quais são capazes de mostrar as operações que foram feitas pode auxiliar no processo de manutenção, depuração e desenvolvimento de tal sistema.
+
+- Como os logs podem ser usados para rastrear uma stack trace em um ambiente com múltiplos microsserviços?
+Tendo em vista que por meio dos logs, somos capazes de rastrear e fazer o tracing, pois cada microsserviço registra informações importantes em seus logs, como o identificador da requisição e outros detalhes da chamada. Ao juntar os logs de todos os serviços envolvidos, podemos reconstruir a "stack trace" da chamada.
+
+- Explique a importância de agregar métricas em microsserviços e como isso pode ajudar na observabilidade do sistema.
+Tendo em vista que por meio das métricas, podemos avaliar e cuidar bem tanto da saúde, quanto segurança além de outros fatores que podem influenciar questões físicas, de desempenho, de negócio. Por isso, eles são bastante importantes.
+
+- Quais são os principais desafios ao lidar com logs distribuídos em uma arquitetura de microsserviços?
+Os principais desafios seria a própria leitura dos logs, tendo em vista que por serem muitos, é necessário haver uma padronização e formatação dos logs. Além disso, alguns logs podem conter informações sensíveis e que podem não ser muito recomendados de mostra-los.
+
+- Como garantir que a coleta de métricas e logs não afete o desempenho dos microsserviços?
+Utilizar ferramentas para auxiliar durante o processo de exibição destes, além de definir bem o que será capturado nos logs, ou seja, pegar o essencial, evitando assim o uso excessivo e desnecessário.
