@@ -79,6 +79,5 @@ Tendo em vista que por meio das métricas, podemos avaliar e cuidar bem tanto da
 
 - Quais são os principais desafios ao lidar com logs distribuídos em uma arquitetura de microsserviços?
 Os principais desafios seria a própria leitura dos logs, tendo em vista que por serem muitos, é necessário haver uma padronização e formatação dos logs. Além disso, alguns logs podem conter informações sensíveis e que podem não ser muito recomendados de mostra-los.
-
 - Como garantir que a coleta de métricas e logs não afete o desempenho dos microsserviços?
 Utilizar ferramentas para auxiliar durante o processo de exibição destes, além de definir bem o que será capturado nos logs, ou seja, pegar o essencial, evitando assim o uso excessivo e desnecessário.
